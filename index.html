@@ -7,5 +7,49 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>TEST PAGE</h1>
+    <label for="userIdLabel">ユーザID</label>
+    <input type="text" name="userId" id="userId" placeholder="001941">
+    <button id="btn">採番</button>
 </body>
+<script>
+// register-api
+const api = 'https://b8gnm6ogsj.execute-api.ap-northeast-1.amazonaws.com/dev/register';
+var btn = document.getElementById('btn');
+ 
+btn.addEventListener('click', function() {
+  regist(document.getElementById('userId'));
+})
+
+// 結果を取得
+function regist(query) {
+　fetch(`${api}?${query}`)
+  　.then(res => res.json())
+  　.then(data => reflect(data))
+    .catch(error => errorReflect(error));
+}
+// 応答結果を表示
+function reflect(data) {
+    console.log(data); // デバッグ表示
+    const s　= "";
+    if(data.statusCode === 200){
+        s = `
+          <h3>${data.body.input_userid}：${data.body.output_number}</h3>
+        `;
+    }else{
+        s = `
+          <h3>不正な値が入力されたか、サーバーで何らかのエラーが発生しました。</h3>
+        `;
+    }
+  }
+  document.write(s);
+}
+// エラーを表示
+function errorReflect(error) {
+    console.log(error)
+    const s = `
+      <h3>エラーが発生しました。</h3>
+    `;
+  }
+  document.write(s);
+}
+</script>
