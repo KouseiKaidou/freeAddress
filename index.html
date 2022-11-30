@@ -17,11 +17,13 @@ const api = 'https://b8gnm6ogsj.execute-api.ap-northeast-1.amazonaws.com/dev/reg
 var btn = document.getElementById('btn');
  
 btn.addEventListener('click', function() {
+  console.log('a'); // デバッグ表示
   regist(document.getElementById('userId'));
 })
 
 // 結果を取得
 function regist(query) {
+  console.log('b'); // デバッグ表示
 　fetch(`${api}?${query}`)
   　.then(res => res.json())
   　.then(data => reflect(data))
