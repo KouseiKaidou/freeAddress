@@ -25,7 +25,7 @@
 
     // 結果を取得
     function regist(query) {
-        console.log('b'); // デバッグ表示
+        console.log(`${api}?input_userid=${query}`); // デバッグ表示
         fetch(`${api}?input_userid=${query}`)
             .then(res => res.json())
             .then(data => reflect(data))
