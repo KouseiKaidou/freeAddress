@@ -24,8 +24,8 @@
 
     // 結果を取得
     function regist(query) {
-        console.log(`${api}?input_userid=${query}`, {mode: "no-cors"}); // デバッグ表示
-        fetch(`${api}?input_userid=${query}`)
+        console.log(`${api}?input_userid=${query}`); // デバッグ表示
+        fetch(`${api}?input_userid=${query}`, {mode: "no-cors"})
             .then(res => res.json())
             .then(data => reflect(data))
             .catch(error => errorReflect(error));
