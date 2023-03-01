@@ -27,7 +27,7 @@
         console.log(`${api}?input_userid=${query}`); // デバッグ表示
         fetch(`${api}?input_userid=${query}`, {mode: "no-cors"})
             .then((response) => {
-                return response.json();　//ここでBodyからJSONを返す
+                console.log(response);　//ここでBodyからJSONを返す
             })
             .then(data => reflect(data))
             .catch(error => errorReflect(error));
