@@ -29,7 +29,7 @@
         fetch(`${api}?input_userid=${query}`, {mode: "no-cors"})
             .then((response) => {
                 console.log(response);
-                return response.json();//ここでBodyからJSONを返す
+                return JSON.stringify(response);//ここでBodyからJSONを返す
             })
             .then(data => reflect(data))
             .catch(error => errorReflect(error));
