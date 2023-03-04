@@ -25,16 +25,16 @@
 
     // 結果を取得
     async function regist(query) {
-        const parameter = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: "cors"
-        };
+//        const parameter = {
+//            method: 'GET',
+//            headers: {
+//                'Content-Type': 'application/json'
+//            },
+//            mode: "cors"
+//        };
         console.log(`${api}?input_userid=${query}`); // デバッグ表示
         
-        let result = await fetch(`${api}?input_userid=${query}`, parameter)
+        let result = await fetch(`${api}?input_userid=${query}`, {mode: "cors"})
         let json = await result.json()
         reflect(data)
 //        fetch(`${api}?input_userid=${query}`, parameter)
