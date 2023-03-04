@@ -30,14 +30,18 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            mode: "no-cors"
+            mode: "cors"
         };
         console.log(`${api}?input_userid=${query}`); // デバッグ表示
-        fetch(`${api}?input_userid=${query}`, parameter)
-            .then(response => response.json())
-            .then(data => {
-            console.log(data);
-            });
+        
+        let result = await fetch(`${api}?input_userid=${query}`, parameter)
+        let json = await result.json()
+        reflect(data)
+//        fetch(`${api}?input_userid=${query}`, parameter)
+//            .then(response => response.json())
+//            .then(data => {
+//            console.log(data);
+//            });
 
 //            .then((response) => {
 //                console.log(response);
