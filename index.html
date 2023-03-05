@@ -40,6 +40,10 @@
             s = `
           <h3>${data.output_name}さんの座席は${data.output_number}です。</h3>
         `;
+        } else if (result.status === 400) {
+            s = `
+          <h3>${data.message}</h3>
+        `;
         } else {
             s = `
           <h3>不正な値が入力されたか、サーバーで何らかのエラーが発生しました。</h3>
