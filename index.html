@@ -20,6 +20,8 @@
     var btn = document.getElementById('btn');
 
     btn.addEventListener('click', function () {
+        //ダブルクリック制御
+        btn.disabled = true;
         regist(document.getElementById('userId').value);
     })
 
